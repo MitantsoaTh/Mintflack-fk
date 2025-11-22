@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const Prefixes = ["ai", "anjara", "ae", "𝗆itantsoa", "𝗆ik𝗆on"];
+const Prefixes = ["ai", "anjara", "ae", "mitantsoa", "mikmon"];
 
 const fonts = {
   a: "𝖺", b: "𝖻", c: "𝖼", d: "𝖽", e: "𝖾", f: "𝖿", g: "𝗀", h: "𝗁", i: "𝗂",
@@ -63,7 +63,7 @@ module.exports = {
     }
 
     try {
-      const apiUrl = https://delirius-apiofc.vercel.app/ia/chatgpt?q=${encodeURIComponent(RP + " : " + prompt)}&user=${uid};
+      const apiUrl = `https://delirius-apiofc.vercel.app/ia/chatgpt?q=${encodeURIComponent(RP + " : " + prompt)}&user=${uid}`;
       const { data } = await axios.get(apiUrl, { timeout: 100000 });
       const response = data?.data || "🤖 Aucune réponse reçue.";
 
@@ -120,7 +120,7 @@ module.exports = {
     const uid = event.senderID;
 
     try {
-      const apiUrl = https://delirius-apiofc.vercel.app/ia/chatgpt?q=${encodeURIComponent(prompt)}&user=${uid};
+      const apiUrl = `https://delirius-apiofc.vercel.app/ia/chatgpt?q=${encodeURIComponent(prompt)}&user=${uid}`;
       const { data } = await axios.get(apiUrl, { timeout: 150001 });
       const response = data?.data || "🤖 Aucune réponse obtenue.";
 
@@ -154,7 +154,7 @@ module.exports = {
       console.error(err);
       const errMsg = err.code === 'ECONNABORTED'
         ? "⚠️ Le serveur est trop lent à répondre."
-        : "❌ Une erreur s’est produite avec l'API GPTAE.";
+        : "❌ Une erreur s'est produite avec l'API GPTAE.";
       message.reply(applyFont(errMsg));
     }
   }
